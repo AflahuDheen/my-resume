@@ -446,7 +446,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="contact-form">
 			<div class="row">
 				<div class="col-lg-8">
-					<form name="contactform" id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbyATUGc9RnQcfYUYzQml9GwlkXkGsrC-W3bFT0s/exec" onsubmit="return(validate());" novalidate="novalidate">
+					<form name="contactform" id="submit-form" action="" onsubmit="return(validate());" novalidate="novalidate">
 						<div class="row">
 							<div class="form-group col-md-6 ">
 							  <label>Name</label>
@@ -526,6 +526,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 </div>
 <!-- move top -->
+<script>
+	$("#submit-form").submit((e)=>{
+		e.preventDefault()
+		$.ajax({
+			url:"https://script.google.com/macros/s/AKfycbyATUGc9RnQcfYUYzQml9GwlkXkGsrC-W3bFT0s/exec",
+			url:"",
+			data:$("#submit-form").serialize(),
+			method:"post",
+			success:function (response){
+				alert("Form submitted successfully")
+				window.location.reload()
+				//window.location.href="https://google.com"
+			},
+			error:function (err){
+				alert("Something Error")
 
+			}
+		})
+	})
+</script>
 </body>
 </html>
